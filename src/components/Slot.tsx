@@ -136,10 +136,14 @@ function Slot({
         className={styles.numbers}
         style={{
           transition: 'none',
-          transform: reverse ? `translateY(-${slotNumbersHeight}px)` : `translateY(0px)`,
+          transform: reverse
+            ? `translateY(-${slotNumbersHeight}px)`
+            : `translateY(${hasInfiniteList ? '-50%' : 0})`,
           ...(localActive &&
             isChanged && {
-              transform: reverse ? `translateY(0px)` : `translateY(-${slotNumbersHeight}px)`,
+              transform: reverse
+                ? `translateY(${hasInfiniteList ? '-50%' : 0})`
+                : `translateY(-${slotNumbersHeight}px)`,
               transition: `transform ${effectiveDuration}s ${delay}s ease-in-out`,
             }),
         }}
